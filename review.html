@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="author" content="Seven Up, Inc." />
+        <meta name="description" content="Hear why our customers love 7UP, whose crisp and refreshing taste never disappoints." />
+        <link rel="shortcut icon" href="images/7Up-favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Kalam&family=Nothing+You+Could+Do&family=PT+Sans&display=swap" rel="stylesheet">
+        <script src="script/script.js" defer></script>
+        <title>Customer Review | 7up.com</title>
+    </head>
+    <body>
+        <!-- Page-level Header -->
+        <header class="navbar">
+            <a href="index.html" title="Visit 7UP.com"><img src="images/7Up-logo.svg" alt="7UP Logo" /></a>
+            <nav>
+                <ul class="navigation">
+                  <li><a href="index.html">About</a></li>
+                  <li><a href="order.html">Order</a></li>
+                  <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </nav>
+        <!-- In reality, we'd be using PHP to include the footer and navbar on every page instead of pasting the same codes on every page
+            <?php include("includes/global-nav.php");?>
+        -->
+        </header>
+        
+        <!-- Page-level Main Content -->
+        <main>
+            <h1>Hear what our customers say about 7UP</h1>
+            <!-- Hero Slider -->
+            <section class="comment-wrapper">
+                <button class="previous-btn" type="button">&lt;</button>
+                <div class="comment-details" id="comment-details">
+                    <p class="comment-text" id="comment-text">7UP is always crisp and never syrupy, making it the perfect option for anyone who wants to quench their thirst without getting too much sugar.</p>
+                    <p class="commentor" id="commentor">Sarah T., Toronto, ON</p>
+                </div>             
+                <button class="next-btn" type="button">&gt;</button>
+            </section>            
+            <h2>Leave your comments on 7UP products</h2>
+            <!-- The customer review will be sent over to another page (not yet created) by post method -->
+            <form id="review" action="#" method="post">
+                <!-- This section is for personal details -->
+                <section>
+                    <h3>Please provide your details: </h3>
+                    <p class="inputRow">
+                        <!-- The person's name must start with a letter and includes only letters and spaces -->
+                        <label for="firstname">First Name</label>
+                        <input type="text" id="firstname" name="firstname" required pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" />
+                    </p>
+                    <p class="inputRow">
+                        <!-- The person's name must start with a letter and includes only letters and spaces -->
+                        <label for="lastname">Last Name</label>
+                        <input type="text" id="lastname" name="lastname" required pattern="[a-zA-Z][a-zA-Z ]+[a-zA-Z]$" />
+                    </p>
+                    <p class="inputRow">
+                        <!-- The date of purchase must be today or before (i.e. cannot select dates in the future) -->
+                        <!-- It is not a required input field because non-customers should be able to give comments too -->
+                        <label for="purchase-date">Date of Purchase</label>
+                        <input type="date" id="purchase-date" name="purchase-date" onfocus="this.max=new Date().toISOString().split('T')[0]" />
+                    </p>
+                    <p class="inputRow">
+                        <!-- The receipt no. is restricted to 10-digit number only -->
+                        <!-- It is not a required input field because non-customers should be able to give comments too -->
+                        <label for="receipt">Receipt Number</label>
+                        <input type="text" id="receipt" name="receipt" pattern="[0-9]+" size="10" placeholder="Enter your 10-digit receipt number here"/>
+                    </p>
+                    <p class="inputRow">
+                        <!-- The phone number must contain digits only -->
+                        <label for="contact-tel">Telephone</label>
+                        <input type="tel" id="contact-tel" name="contact-tel" inputmode="numeric" required pattern="[0-9]+" />
+                    </p>
+                    <p class="inputRow">
+                        <!-- Browser uses a default regular expression to validate email input -->
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="example@gmail.com" required />
+                    </p>
+                </section>
+                <!-- This section is for customer ratings -->
+                <section>
+                    <h3>Please rate the following:</h3>
+                    <fieldset class="rating">
+                        <legend>Flavor</legend>
+                        <ul> 
+                            <li>
+                                <input type="radio" id="flavor-rate5" name="flavor-rating" value="5" required/>
+                                <label for="flavor-rate5">5 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="flavor-rate4" name="flavor-rating" value="4"/>
+                                <label for="flavor-rate4">4 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="flavor-rate3" name="flavor-rating" value="3"/>
+                                <label for="flavor-rate3">3 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="flavor-rate2" name="flavor-rating" value="2"/>
+                                <label for="flavor-rate2">2 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="flavor-rate1" name="flavor-rating" value="1"/>
+                                <label for="flavor-rate1">1 star</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="rating">
+                        <legend>Price</legend>
+                        <ul>
+                            <li>
+                                <input type="radio" id="price-rate5" name="price-rating" value="5" required/>
+                                <label for="price-rate5">5 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="price-rate4" name="price-rating" value="4"/>
+                                <label for="price-rate4">4 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="price-rate3" name="price-rating" value="3"/>
+                                <label for="price-rate3">3 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="price-rate2" name="price-rating" value="2"/>
+                                <label for="price-rate2">2 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="price-rate1" name="price-rating" value="1"/>
+                                <label for="price-rate1">1 star</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                    <fieldset class="rating">
+                        <legend>Store Location</legend>
+                        <ul>
+                            <li>
+                                <input type="radio" id="location-rate5" name="location-rating" value="5" required/>
+                                <label for="location-rate5">5 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="location-rate4" name="location-rating" value="4"/>
+                                <label for="location-rate4">4 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="location-rate3" name="location-rating" value="3"/>
+                                <label for="location-rate3">3 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="location-rate2" name="location-rating" value="2"/>
+                                <label for="location-rate2">2 stars</label>
+                            </li>
+                            <li>
+                                <input type="radio" id="location-rate1" name="location-rating" value="1"/>
+                                <label for="location-rate1">1 star</label>
+                            </li>
+                        </ul>
+                    </fieldset>
+                </section>
+                <!-- This section is for written comments -->
+                <section>
+                    <h3>Do you have any further comments?</h3>
+                    <textarea id="feedback" name="feedback" placeholder="Please provide your feedback here" rows="5"></textarea>
+                </section>
+                <!-- This section is for submit/reset buttons -->
+                <section>
+                    <button class="reset-btn" type="reset">Cancel</button>
+                    <button class="submit-btn" type="submit">Submit</button>
+                </section>
+            </form>
+        </main>
+        
+        <!-- Page-level Footer -->
+        <footer>
+            <p>
+                <small>
+                    The <a href="https://policies.google.com/privacy" target="_blank" class="external" title="Read the Privacy Policy in new tab">Privacy Policy</a> 
+                    and <a href="https://policies.google.com/terms" target="_blank" class="external"  title="Read the Terms of Service in new tab">Terms of Service</a> 
+                    by Google apply here.
+                </small>
+            </p>
+            <p><small>© 2023 Seven Up, Inc. All rights reserved.</small></p>
+        <!-- In reality, we'd be using PHP to include the footer and navbar on every page instead of pasting the same codes on every page   
+            <?php include("includes/global-footer.php");?> 
+        -->
+        </footer>
+    </body>
+</html>

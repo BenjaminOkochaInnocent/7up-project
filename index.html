@@ -1,0 +1,86 @@
+<!-- Benjamin Okocha-Innocent, Magg Lui, Phuc Nguyen, Ansh Sidana -->
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Seven Up, Inc." />
+        <meta name="description" content="Crisp and refreshing, the lemon-lime-flavored 7UP is a non-caffeinated drink that mixes well into punches, cocktails, baked goods, and many more. Refresh yourself with a 7UP now." />
+        <link rel="shortcut icon" href="images/7Up-favicon.png" type="image/x-icon" />
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Contrail+One&family=Kalam&family=Nothing+You+Could+Do&family=PT+Sans&display=swap" rel="stylesheet">
+        <script src="script/script.js" defer></script>
+        <title>Home | 7up.com</title>
+    </head>
+    <body>
+        <!-- Page-level Header -->
+        <header class="navbar">
+            <a href="index.html" title="Visit 7UP.com"><img src="images/7Up-logo.svg" alt="7UP Logo" /></a>
+            <nav>
+                <ul class="navigation">
+                    <li><a href="index.html">About</a></li>
+                    <li><a href="order.html">Order</a></li>
+                    <li><a href="review.html">Reviews</a></li>
+                </ul>
+            </nav>
+        <!-- In reality, we'd be using PHP to include the footer and navbar on every page instead of pasting the same codes on every page
+            <?php include("includes/global-nav.php");?>
+        -->
+        </header>
+
+        <!-- Page-level Main Content -->
+        <main>
+            <h1>Refreshing<br>I like</h1>
+            <!-- This section is for 7UP's background info -->
+            <section>
+                <h2>About 7UP</h2>
+                <p>
+                    7 Up was created by Charles Leiper Grigg, in 1920. Grigg came up with the formula for a lemon-lime soft drink in 1929. The product, originally named "Bib-Label Lithiated Lemon-Lime Soda". It contained lithium citrate, a mood-stabilizing drug, until 1948.
+                    It was one of a number of patent medicine products popular in the late-19th and early-20th centuries. 
+                    Its name was later shortened to "7 Up Lithiated Lemon Soda" before being further shortened to just "7 Up" by 1936.
+                </p>
+                <p>Enjoy the deliciously uncomplicated taste of Simple 7UP, a soda made with only real ingredients. How refreshing.</p>
+            </section>
+            <!-- This section is for 7UP's product details -->
+            <section>
+                <h2>Quick facts</h2>
+                <div class="quick-fact-wrapper">
+                    <ul>
+                        <li><span class="list-label">Ingredients: </span><span class="ingredients">Filtered carbonated water, sugar, citric acid, lemon extract, lime extract, stevia leaf extract</span></li>
+                        <li><span class="list-label">Serving size: </span>12.00 fl oz</li>
+                        <li><span class="list-label">Amount per serving: </span>
+                            <ul>
+                                <li>Total Fat 0g <span aria-label="percent-daily-values">(0%)*</span></li>
+                                <li>Sodium 40mg <span aria-label="percent-daily-values">(2%)*</span></li>
+                                <li>Total Carbohydrates 28g <span aria-label="percent-daily-values">(10%)*</span></li>
+                                <li>Sugar 28g</li>
+                                <li>Protein 0g</li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <img src="images/7Up-can.png" alt="Image of a 7UP can" id="can"/>
+                </div>
+                <p class="footnote"><span aria-label="note">*</span>Percent Daily Values are based on a 2000 calorie diet.</p>
+            </section>
+        </main>
+
+        <!-- Page-level Footer -->
+        <footer>
+            <p>
+                <small>
+                    The <a href="https://policies.google.com/privacy" target="_blank" class="external" title="Read the Privacy Policy in new tab">Privacy Policy</a> 
+                    and <a href="https://policies.google.com/terms" target="_blank" class="external"  title="Read the Terms of Service in new tab">Terms of Service</a> 
+                    by Google apply here.
+                </small>
+            </p>
+            <p><small>© 2023 Seven Up, Inc. All rights reserved.</small></p>
+        <!-- In reality, we'd be using PHP to include the footer and navbar on every page instead of pasting the same codes on every page   
+            <?php include("includes/global-footer.php");?> 
+        -->
+        </footer>
+    </body>
+</html>

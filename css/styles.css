@@ -1,0 +1,408 @@
+@charset "utf-8";
+
+/* Use alternative box-sizing for the whole page */
+html,
+body {
+    box-sizing: border-box;
+    font-family: 'PT Sans', Helvetica, Arial, sans-serif;
+    font-size: 2vw;           /* The default font size is set in proportion to viewport width so that it will be responsive to the screen size */
+    margin: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+  background: url("../images/background.jpg") no-repeat;
+  background-size: 100%;
+}
+
+main {
+  background-color: rgba(76, 233, 128, 0.3);
+  padding: 1rem 2rem;     
+}
+
+h1,
+h2 {
+  font-variant: small-caps;
+  font-family: 'Contrail One', cursive, sans-serif;
+  letter-spacing: 3px;
+  text-shadow: 3px 3px 5px white;
+}
+
+h1 {
+  font-size: 5vw;
+  text-align: center;
+}
+
+ul {                         /* remove the default list-style and padding for unordered list */
+  padding-inline-start: 0;
+  list-style-type: none;
+}
+
+ul ul {                      /* for nested unordered list however, there will be padding at inline start and a circle before each list item */
+  padding-inline-start: 2em;
+  list-style-type: circle;
+}
+
+
+/* Styling for navigation bar */
+header.navbar {
+  position: sticky;          /* The navigation bar will stay at the top of the page */
+  top: 0;
+  padding: 0.5rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  background-color: forestgreen;
+  z-index: 99;               /* The nav bar will be displayed on the top layer */
+}
+
+header.navbar img {         /* Sizing the logo in the navbar */
+  width: 30%;
+  min-width: 100px;
+  min-height: 60px;
+  object-fit: contain;
+}
+
+ul.navigation {
+  white-space: nowrap;      /* suppresses line-break so that the menu links will always appear in one row regardless of the screen size */
+}
+
+ul.navigation li {          /* change the display of the list items in the nav bar so they will appear in a row */
+  display: inline;
+}
+
+.navigation a {
+  font-size: 1.1em;
+  font-weight: bold;
+  color: white;
+  text-decoration: none;
+  margin-left: 40px;
+  display: inline-block;
+  position: relative;
+}
+
+.navigation a::after{       /* Add an underline animation when the menu link is hovered */
+  content: ' ';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 3px;
+  transform-origin: right;
+  background: #fff;
+  border-radius: 5px;
+  transform: scaleX(0);
+  transition: transform .5s;
+}
+
+.navigation a:hover::after{
+  transform-origin: left;
+  transform: scaleX(1);
+}
+
+
+/* Styling for about page */
+li *.list-label {
+  font-weight: bold;
+}
+
+.ingredients {
+  text-transform: uppercase;
+}
+
+.quick-fact-wrapper {
+  display: flex;
+}
+
+img#can {
+  width: 50%;
+  min-width: 50px;
+  min-height: 50px;
+  object-fit: contain;  
+}
+
+p.footnote {
+  font-style: italic;
+  font-size: 0.8em;
+}
+
+
+/* Styling for order page */
+/* defines the overall styling for the form */
+.order-form {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem;
+  background: white;
+  box-shadow: 0 10px 10px rgba(0,0,0, .1);
+}
+
+/* styling for each row of inputs in the form. It is set to display flex with its child elements wrapped and spaced with a 5% gap.*/
+.order-form *.row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5%;
+}
+
+/* sets the styling for the two columns of inputs such that they are of equal width */
+.order-form *.col {
+  flex: 1 1 45%;
+}
+
+@media screen and (max-width: 768px) and (orientation: portrait){
+  .order-form *.row {
+    gap: 15%;
+  }
+}
+
+/* styling for the h2 title in the order form will differ from the previous h2 styling for all pages */
+.order-form h2 {
+  font: normal bold 2.5vw/1.2 sans-serif;
+  color: #333;
+  padding-bottom: 5px;
+  text-transform: uppercase;
+}
+
+.order-form *.inputBox {
+  margin: 0.5em 0;
+}
+
+/* labels of input boxes is set to block display to push the input area to the next line for styling purposes */
+.order-form p.inputBox label {
+  display: block;
+}
+
+.order-form *.inputBox input {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+}
+
+.order-form fieldset.inputBox {
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+.order-form fieldset.inputBox legend {
+  float: left;        /* float the legend to the left and position it inside the fieldset content box */
+  margin-bottom: -0.5em;
+  margin-left: -0.7em;
+  width: 35%;
+  font-size: 1rem;
+}
+
+.order-form fieldset.inputBox select {
+  width: 65%;
+  text-align: center;
+  font-size: 0.8rem;
+}
+
+.order-form fieldset.inputBox ul {
+  margin-block: 0;
+}
+
+.order-form fieldset.inputBox li:has(input[type="radio"]) {
+  display: inline;
+}
+
+.order-form fieldset.inputBox input[type="radio"] {
+  width: auto;        /* override the earlier width for radio input type */
+}
+
+.order-form img {
+  width: 100%;
+  min-width: 150px;
+  min-height: 30px;
+  object-fit: contain;
+}
+
+.order-form *.submit-btn{
+  width: 100%;
+  padding: 1rem;
+  font-size: 1.5rem;
+  background: #27ae60;
+  color: white;
+  margin-top: 1.5rem;
+  cursor: pointer;
+}
+
+
+/* Styling for review page */
+.comment-wrapper {
+  align-items: center;
+  display: flex;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;   /* The position is set to relative so that its child can be styled with an absolute position relative to this parent */
+}
+
+.comment-details {
+  font: 1rem/1.2 'Kalam', cursive, sans-serif;
+  width: 80%;
+  margin: 0 auto;
+  padding: 2em 2em 4.5em;
+  background-image: url(../images/comment-box.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.comment-details p {
+  margin: 0 auto;
+}
+
+.commentor {
+  text-align: right;
+}
+
+.commentor::before {
+  content: '— '          /* add a dash before customer's name */
+}
+
+/* Styling for the leave comment section */
+main h2 {
+  font-size: 3.5vw;
+  margin-bottom: 0.8rem;
+}
+
+#review h3 {
+  font-size: 2vw;
+  margin: 0.5em 0;
+}
+
+p.inputRow {
+  margin: 0.5em 1em;
+  line-height: 1.2;
+  display: flex;      /* change the display to flex so that the input and label within the class are aligned in row */
+  flex-direction: row;
+}
+
+.inputRow label {
+  min-width: 5em;
+  width: 30%;
+}
+
+.inputRow input {
+  width: 70%;
+  padding-left: 0.5em;
+  font-size: 0.75em;
+}
+
+fieldset.rating {
+  border: none;       /* remove the default border for fieldset */
+  margin: 0 auto;
+  padding: 0 0.5rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+fieldset.rating legend {
+  float: left;        /* float the legend to the left so it aligns with the star icons */
+  margin-bottom: -0.5em;
+  width: 35%;
+  font-size: 1rem;
+}
+
+fieldset.rating ul {
+  display: flex;
+  flex-direction: row-reverse;   /* the stars will appear in a row with 1star at the leftmost and 5stars the rightmost */
+  margin: 0 0.5rem;
+  padding: 0;
+}
+
+fieldset.rating input[type=radio] {
+  display: none;      /* hide the radio buttons */
+}
+
+/* the star labels will be floated to the right, with width 1em only.
+   as overflown content is set to hidden and line-breaks are suppressed, 
+   the labels will appear invisible from the viewport */
+fieldset.rating label {    
+  float: right;
+  font-size: 1em;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+fieldset.rating:not(:checked) label::before {
+  content: '★ ';     /* add a star icon before each label, the default color will be white */
+  color: white;
+}
+
+fieldset.rating input:checked + label::before,
+fieldset.rating li:has(input:checked) ~ li label::before {
+  color: yellow;   /* when the star button is checked, change its color and the stars that come before it to yellow */
+}
+
+fieldset.rating:not(:checked) li:hover label::before,
+fieldset.rating:not(:checked) li:hover ~ li label::before {
+  color: rgba(255, 255, 80, 0.888);  /* when the star is not checked but is being hovered, itself and the stars that come before it will change to a lighter yellow color */
+}
+
+fieldset.rating li:has(input:checked) ~ li:hover label::before,        
+fieldset.rating li:has(input:checked) ~ li:hover ~ li label::before,
+fieldset.rating li:hover ~ li:has(input:checked) label::before,
+fieldset.rating li:hover ~ li:has(input:checked) ~ li label::before {
+  color: rgba(217, 217, 38, 0.649);  /* when a star is checked but another star that comes before it is being hovered, the hovered star and the stars before it will change to a darker yellow color */
+}                                      /* when a star is checked but another star that comes after it is being hovered, the checked star and all other stars before the hovered one will have a darker yellow color too */
+
+fieldset.rating li {
+  display: inline;
+}
+
+textarea {
+  width: 100%;
+  resize: vertical;    /* allow vertical resizing of the textarea only */
+}
+
+#review button {
+  min-width:fit-content;
+  width: 15%;
+  height: 1.5rem;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  text-align: center;
+  border: 0.5px solid;
+  border-radius: 5px;
+}
+
+#review button.submit-btn {
+  background-color: rgba(35, 180, 6, 0.596);
+}
+
+#review section:has(> button) {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+
+/* Styling for the footer */
+footer {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+footer p {
+  margin: 0;
+  line-height: 0.5em;
+}
+
+footer small {
+  font-size: 0.4rem;
+}
+
+/* Add an icon beside link that opens in a new tab */
+a.external[target="_blank"]::after {
+  content: url(../images/new-tab.png);
+  margin: 0px 3px 0px 5px;
+}
